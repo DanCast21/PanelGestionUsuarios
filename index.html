@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Meta viewport: necesario para el diseño responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de Gestión de Usuarios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Encabezado con título y contador de usuarios -->
+  <header class="cabecera">
+    <div>
+      <h1>Panel de usuarios</h1>
+      <p class="subtitulo">Consulta, agrega, edita y elimina usuarios. Los cambios solo viven en esta página.</p>
+    </div>
+    <div class="contador" aria-live="polite">
+      <strong id="contador">0</strong>
+      <span>usuarios</span>
+    </div>
+  </header>
+
+  <!-- Área de mensajes de estado, error y confirmación -->
+  <div id="mensaje" class="mensaje oculto" role="status" aria-live="polite"></div>
+
+  <main class="layout">
+    <!-- Formulario para agregar y editar -->
+    <section class="tarjeta formulario-wrap">
+      <h2 id="tituloFormulario">Nuevo usuario</h2>
+      <form id="formUsuario" novalidate>
+        <div class="campo">
+          <label for="id">ID</label>
+          <input type="text" id="id" name="id" inputmode="numeric" placeholder="Ej. 11">
+        </div>
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre completo">
+        </div>
+        <div class="campo">
+          <label for="correo">Correo</label>
+          <input type="text" id="correo" name="correo" placeholder="nombre@correo.com">
+        </div>
+        <div class="campo">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+        </div>
+        <div class="acciones-form">
+          <button type="submit" id="btnGuardar" class="btn btn-primario">Agregar usuario</button>
+          <button type="button" id="btnCancelar" class="btn btn-secundario oculto">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Buscador y tabla -->
+    <section class="tarjeta tabla-wrap">
+      <div class="barra-busqueda">
+        <label for="buscador" class="sr-only">Buscar por nombre</label>
+        <input type="search" id="buscador" placeholder="Buscar por nombre…">
+      </div>
+
+      <table id="tablaUsuarios">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Ciudad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpoTabla"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
